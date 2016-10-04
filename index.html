@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yatzy!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="yatzyFunc.js"></script>
+    <script src="yatzyGUI.js"></script>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <table id="dice">
+        <tr>
+            <td id="first"><img src="Die0.PNG"></td>
+            <td id="second"><img src="Die0.PNG"></td>
+            <td id="third"><img src="Die0.PNG"></td>
+            <td id="fourth"><img src="Die0.PNG"></td>
+            <td id="fifth"><img src="Die0.PNG"></td>
+        </tr>
+        <tr>
+            <td><button id="rollDice">Kast!</button></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="turns"><b>Slag:</b> 0</td>
+        </tr>
+    </table>
+
+    <div id="highscores">
+        <b>*'*'*'*'Highscore-liste:'*'*'*'*</b>
+        <ol>
+        </ol>
+    </div>
+
+    <table id="results">
+        <tr>
+            <td><label for="1s">1'ere:</label></td>
+            <td><input type="text" id="1s" value="0" disabled readonly></td>
+        </tr>
+        <tr>
+            <td><label for="2s">2'ere: </label></td>
+            <td><input type="text" id="2s" value="0" disabled readonly></td>
+        </tr>
+        <tr>
+            <td><label for="3s">3'ere: </label></td>
+            <td><input type="text" id="3s" value="0" disabled readonly></td>
+        </tr>
+        <tr>
+            <td><label for="4s">4'ere: </label></td>
+            <td><input type="text" id="4s" value="0" disabled readonly></td>
+        </tr>
+        <tr>
+            <td><label for="5s">5'ere: </label></td>
+            <td><input type="text" id="5s" value="0" disabled readonly></td>
+        </tr>
+        <tr>
+            <td><label for="6s">6'ere: </label></td>
+            <td><input type="text" id="6s" value="0" disabled readonly></td>
+            <td><label for="sum">Sum: </label><input type="text" id="sum"  value="0" readonly></td>
+            <td><label for="bonus">Bonus: </label><input type="text" id="bonus"  value="0" readonly></td>
+        </tr>
+        <tr>
+            <td><label for="1par">1 par: </label></td>
+            <td><input type="text" id="1par" value="0" disabled readonly></td>
+        </tr>
+        <tr>
+            <td><label for="2par">2 par: </label></td>
+            <td><input type="text" id="2par" value="0" disabled readonly></td>
+        </tr>
+        <tr>
+            <td><label for="3ens">3 ens: </label></td>
+            <td><input type="text" id="3ens" value="0" disabled readonly></td>
+        </tr>
+        <tr>
+            <td><label for="4ens">4 ens: </label></td>
+            <td><input type="text" id="4ens" value="0" disabled readonly></td>
+        </tr>
+        <tr>
+            <td><label for="lilleStraight">Lille Straight: </label></td>
+            <td><input type="text" id="lilleStraight" value="0" disabled readonly></td>
+        </tr>
+        <tr>
+            <td><label for="storStraight">Stor Straight: </label></td>
+            <td><input type="text" id="storStraight" value="0" disabled readonly></td>
+        </tr>
+        <tr>
+            <td><label for="fuldtHus">Fuldt hus: </label></td>
+            <td><input type="text" id="fuldtHus" value="0" disabled readonly></td>
+        </tr>
+        <tr>
+            <td><label for="chance">Chance: </label></td>
+            <td><input type="text" id="chance" value="0" disabled readonly></td>
+        </tr>
+        <tr>
+            <td><label for="yatzy">Yatzy: </label></td>
+            <td><input type="text" id="yatzy" value="0" disabled readonly></td>
+            <td></td>
+            <td><label for="total">Total: </label><input type="text" id="total" value="0" readonly></td>
+        </tr>
+    </table>
+
+    <div id="rules">
+        <b>*'*'*'*'Regler:'*'*'*'*</b>
+        <ul><li>I hver runde har spilleren 3 slag. Ved hvert terningslag må spilleren vælge de terninger fra, som han
+            vil samle på. De resterende terninger bruges i næste slag.</li>
+        <li>Når spilleren har haft sine 3 kast, vælges et pointfelt som spilleren ønsker at samle sine point i.</li>
+        <li>På øverste del af pointblokken er målet at få så mange som muligt af hver (1'ere, 2'ere osv.) for at
+            opnå sin bonus. For at få sin bonus, skal man have minimum 63 point (dvs. i gennemsnit 3 af
+            1'erne, 3 af 2'erne osv.). Bonus giver 50 point, som skrives i feltet ved siden af summen.
+        </li>
+        <li>På nederste del af pointblokken opnås point således:
+            <ul>
+                <li>1 par (2 ens højst 12)</li>
+                <li>2 par (2 x 2 ens højst 22)</li>
+                <li>3 ens (3 ens højst 18)</li>
+                <li>4 ens (4 ens højst 24)</li>
+                <li>”Lille Straight” (1, 2, 3, 4, 5 giver 15)</li>
+                <li>”Stor Straight” (2, 3, 4, 5, 6 giver 20)</li>
+                <li>”Fuldt Hus” (3+2 ens højst 28)</li>
+                <li>Chance (alle øjne lægges sammen, højst 30)</li>
+                <li>Yatzy (5 ens giver 50 point) </li>
+            </ul>
+        </li>
+        <li>Alle point lægges sammen efter hver runde, og spilleren kan se sin totale score.</li></ul>
+        <img src="rulachu.gif">
+    </div>
+
+    <table id="information">
+        <tr>
+            <td><b>Se highscores:</b></td>
+            <td id="toggleHS"><u>Link</u></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><b>Læs reglerne:</b></td>
+            <td id="toggleRules"><u>Link</u></td>
+            <td><td><label for="brugernavn"><b>Du spiller som: </b></label><input type="text" id="brugernavn" disabled></td>
+        </tr>
+    </table>
+</body>
+</html>

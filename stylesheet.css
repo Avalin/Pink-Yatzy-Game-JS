@@ -1,0 +1,98 @@
+table
+{
+    color: #FFFFFF;
+    font-size: 10px;
+    background-color: #ffb1dc;
+    border: black solid 1px;
+    width: 375px;
+    height: 320px;
+    padding: 15px;
+}
+
+td
+{
+    color: #ff0d80;
+    font-size: 14px;
+}
+
+div
+{
+    text-align: center;
+}
+
+li
+{
+    text-align: left;
+}
+
+input
+{
+    width: 50px;
+}
+
+button
+{
+    font-weight: bold;
+    padding-right: 12px;
+    padding-left: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #fa9bca;
+    color: #d72970;
+}
+
+#dice
+{
+    display: inline-table;
+    height: 100px;
+    border-bottom: #fa9bca;
+}
+
+#results
+{
+    border-bottom: #fa9bca;
+}
+
+#information
+{
+    height: 100px;
+}
+
+#brugernavn
+{
+    width: 100px;
+}
+
+#highscores
+{
+    position: absolute;
+    top: 10px;
+    right: 300px;
+    border: black double 3px;
+    background-color: #ffb1dc;
+    display: none;
+    height: 215px;
+    width: 215px;
+    margin-bottom: -138px;
+    overflow-y: auto;
+}
+
+#rules
+{
+    float: right;
+    width: 400px;
+    position: absolute;
+    top: 25px;
+    left: 400px;
+    display: none;
+}
+
+#toggleRules
+{
+    color: #8b2e82;
+}
+
+#toggleHS
+{
+    color: #8b2e82;
+}
