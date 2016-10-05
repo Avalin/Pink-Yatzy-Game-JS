@@ -57,7 +57,7 @@ $(function()
 
     function insertValue(object, method)
     {
-        if(!object.data("clicked")) //Er værdien fastlåst?
+        if(!object.data("clicked")) //Hvis værdien IKKE er fastlåst, indsæt værdi
         {
             object.val(method);
             object.prop("disabled", false);
@@ -168,7 +168,7 @@ $(function()
             object.prop("disabled", true);
         }
 
-        function resetDie(object, dieVal) //Virkede ikke med loop, så funktion...
+        function resetDie(object, dieVal)
         {
             yz.heldDice[dieVal] = false;
             object.animate().fadeTo('fast', 1.0);
